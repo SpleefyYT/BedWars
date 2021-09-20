@@ -8,9 +8,99 @@
     <artifactId>BedWars</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
+
+    <repositories>
+        <!--  New CLOUDNET Maven repository for releases -->
+        <repository>
+            <id>releases</id>
+            <url>https://repo.cloudnetservice.eu/repository/releases/</url>
+        </repository>
+        <repository>
+            <id>papermc</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.mysticarmy.api</groupId>
+            <artifactId>MysticAPI</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/MysticAPI-PaperSpigot-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <!--  cloudnet driver for plugins and modules -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-driver</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  cloudnet wrapper for plugins -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-wrapper-jvm</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  cloudnet bridge module for plugins and modules -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-bridge</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  cloudnet signs module for plugins and modules -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-signs</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  cloudnet npcs module for plugins and modules
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-npcs</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>-->
+        <!--This adds the cloudnet permission system to the build -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-cloudperms</artifactId>
+            <version>3.3.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>
